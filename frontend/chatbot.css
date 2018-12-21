@@ -1,0 +1,93 @@
+
+ul {
+	list-style: none;
+}
+
+#nav-container {
+	background-color: #1a1a1a; 
+	padding-top: 10px; 
+	padding-left: 30px; 
+}
+
+#robot-avatar {
+	/*border: 3px dashed #ffffff;*/
+}
+
+#title {
+	padding-top: 20px; 
+	color: #ffffff; 
+	/*text-align: center;*/
+}
+
+#chatbot-container {
+	background-image: url("images/flowchart.png"); 
+	background-size: cover; 
+	height: 100vh; 
+} 
+
+#text-window { 
+	border-bottom: 1px dotted #1a1a1a;
+	position: relative; 
+	left: 16%; 
+	top: 15%; 
+	width: 67%; 
+	height: 45%; 
+	overflow-y: scroll; 
+	overflow-x: hidden; 
+} 
+
+.robot-window {
+	margin-top: 10px; 
+	margin-left: -30px; 
+	margin-bottom: 10px; 
+	/*border: 2px solid #84cec3; */
+
+}
+
+.robot-text-window {
+	border: 2px dashed #84cec3; 
+	margin-left: -20px; 
+} 
+
+.user-window { 
+	margin-top: 10px; 
+	margin-bottom: 10px; 
+	margin-left: 10px; 
+	margin-right: 10px;  
+	/*border: 2px dashed #1a1a1a; */
+	text-align: right; 
+	float: right; 
+}
+
+#chat-window {
+	position: relative; 
+	left: 16%; 
+	top: 16.5%; 
+	width: 67%; 
+	height: 15%; 
+} 
+
+#chat-history {
+	width: 100%; 
+}
+
+.robot-group { 
+	width: 100%; 
+	text-align: left; 
+
+} 
+
+.user-group { 
+	width: 100%;
+	text-align: right; 
+}
+
+#btn-send { 
+	background-color: #84cec3; 
+	border: 2px solid #84cec3; 
+	position: relative; 
+	right: 5%;
+	margin-top: 12%;
+	width: 80%; 
+	height: 60%; 
+}

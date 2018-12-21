@@ -1,0 +1,272 @@
+.background {
+  background-image: url("images/bkg.jpg");
+  background-size: cover;
+  height: 100vh;
+}
+
+.backgroundCover {
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 2%;
+}
+
+.bannerContainer {
+  position: absolute;
+  top: 50%;
+  height: 240px;
+  width: 100%;
+  margin-top: -120px; /* negative half of the height */
+  text-align: center;
+}
+
+.bannerText {
+  font-family: "Unseen";
+  font-size: 80pt;
+  color: #ffffff;
+}
+
+.bannerBtnText {
+  font-family: "giid";
+  font-size: 18pt;
+}
+
+.chat-container {
+  display: none;
+  box-shadow: inset 0 0 0 500px rgba(256, 256, 256, 0.3);
+  height: 90vh;
+  margin-top: 3%;
+  border-radius: 25px;
+  padding: 2%;
+  position: relative;
+}
+
+#chat-history {
+  width: 100%;
+}
+
+#text-window {
+  /*border: 2px dashed #fac564;*/
+  border-bottom: 3px dotted #5d535e;
+  padding: 20px;
+  /*width: 100%;*/
+  height: 88%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.robot-text-window {
+  background-color: #5d535e;
+  padding: 8px;
+  border-radius: 5px;
+  color: #ffffff;
+}
+
+.user-text-container {
+}
+
+.discussion {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  height: 90%;
+}
+.discussion li {
+  padding: 0.5rem;
+  overflow: hidden;
+  display: flex;
+}
+.avatar {
+  width: 40px;
+  position: relative;
+}
+.avatar img {
+  display: block;
+  width: 100%;
+}
+
+.other .avatar::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border: 5px solid white;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+}
+
+.self {
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.self .messages {
+  order: 1;
+  border-bottom-right-radius: 0;
+}
+.self .avatar {
+  order: 2;
+}
+.self .avatar::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border: 5px solid white;
+  border-right-color: transparent;
+  border-top-color: transparent;
+  box-shadow: 1px 1px 2px rgba(black, 0.2);
+}
+
+.messages {
+  background: white;
+  padding: 10px;
+  border-radius: 2px;
+  box-shadow: 0 1px 2px rgba(black, 0.2);
+}
+.messages p {
+  font-size: 0.8rem;
+  margin: 0 0 0.2rem 0;
+}
+.messages time {
+  font-size: 0.7rem;
+  color: #ccc;
+}
+
+.user-text-window {
+  position: absolute;
+  right: 0px;
+
+  text-align: right;
+  background-color: #0fbd83;
+  padding: 8px;
+  border-radius: 5px;
+  color: #ffffff;
+}
+
+#chat-window {
+  position: absolute;
+  bottom: 0;
+  width: 95%;
+  padding-top: 20px;
+}
+
+#image-container {
+  /*box-shadow: inset 0 0 0 500px rgba(256, 256, 256, 0.35);*/
+  display: none;
+  height: 65vh;
+  border-radius: 25px;
+}
+
+#carouselExampleIndicators {
+  height: 73vh;
+  margin-top: -30px;
+}
+
+.carousel-inner {
+  height: 80vh;
+}
+
+.res-image-container {
+  padding: 5px;
+  height: 35vh;
+}
+
+.res-image {
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
+  width: auto !important;
+  max-width: 100%;
+}
+
+.res-title {
+  color: #ffffff;
+  font-family: "Belgrano-Regular";
+  font-size: 25pt;
+}
+
+.res-summary {
+  color: #ffffff;
+  font-family: "blzee";
+  font-size: 18pt;
+}
+
+.res-review {
+  color: #cccccc;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 13pt;
+  overflow: auto;
+  max-height: 6vh;
+}
+.res-author {
+  margin-right: 10%;
+  text-align: end;
+  color: #ffffff;
+  font-family: "Eutemia";
+  font-size: 20pt;
+}
+.res-thumbs {
+  text-align: center;
+  padding-bottom: 5px;
+}
+
+.class-text {
+  text-align: center;
+}
+
+#btn-send {
+  width: 100%;
+}
+
+.card {
+  height: 65vh;
+  background-color: rgba(256, 256, 256, 0.3);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 80px;
+  border-radius: 15px;
+}
+
+.card-text {
+  text-align: center;
+  color: #ffffff;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 100px;
+  width: 40px;
+}
+
+.white {
+  color: white;
+}
+
+@font-face {
+  font-family: "Unseen";
+  src: url("fonts/unseen.ttf");
+}
+
+@font-face {
+  font-family: "giid";
+  src: url("fonts/giid.ttf");
+}
+
+@font-face {
+  font-family: "Belgrano-Regular";
+  src: url("fonts/Belgrano-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Eutemia";
+  src: url("fonts/Eutemia.ttf");
+}
+
+@font-face {
+  font-family: "blzee";
+  src: url("fonts/blzee.ttf");
+}

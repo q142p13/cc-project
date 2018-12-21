@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  	<title>Bootstrap Theme Simply Me</title> 
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script> 
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script> 
+	<link rel="stylesheet" type="text/css" href="chatbot.css"> 
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+</head>
+<body> 
+
+<div class="container-fluid">
+  	<div class="row content">
+	    <div class="col-sm-3 sidenav" id="nav-container"> 
+	    	<div id="title" class="row">
+	    		<div class="col-lg-4">
+					<img id="robot-avatar" height="100px" width="100px" src="images/robot_avatar.png" alt="robot avatar">      		
+	    		</div>
+	    		<div class="col-lg-8">
+		      		<h4> COMS6998 </h4> 
+		      		<h1> <big> Chatbot </big> </h1>
+	    		</div>
+	    	</div>
+<!-- 			<ul class="list-group list-group-flush">
+			  <li class="list-group-item">Cras justo odio</li>
+			  <li class="list-group-item">Dapibus ac facilisis in</li>
+			  <li class="list-group-item">Morbi leo risus</li>
+			  <li class="list-group-item">Porta ac consectetur ac</li>
+			  <li class="list-group-item">Vestibulum at eros</li>
+			</ul> -->
+	    </div>
+
+    	<div class="col-sm-9" id="chatbot-container"> 
+    		<div id="text-window" class="row">
+    			<ul id="chat-history"> 
+					<li class="row robot-window"> 
+						<div class="col-lg-2">
+							<img width="60px" height="60px" src="images/robot_avatar.jpg"> 
+						</div>
+						
+						<div class="col-lg-10 robot-text-window">
+							Hello! I'm a chatbot :) Nice to meet you. I can only say 'hello' now Hello! I'm a chatbot :) Nice to meet you. I can only say 'hello' now Hello! I'm a chatbot :) Nice to meet you. I can only say 'hello' now 
+						</div> 
+					</li> 
+				</ul>
+    		</div>
+
+    		<div id="chat-window"> 
+				<form id="chatboard" action="https://3ft1w3clgd.execute-api.us-west-2.amazonaws.com/complete_with_key/chatbot" method="POST" class="row">
+				  	<div class="form-group col-lg-9"> 
+				  		<textarea id="user-message" width="100%" class="form-control" rows="3"></textarea> 
+				  	</div> 
+				  	<div class="col-lg-3"> 
+				  		<button id="btn-send" type="submit" class="btn btn-primary">Submit</button>
+				  	</div>
+				</form> 
+			</div> 
+    	</div>
+  	</div>
+</div>
+
+
+<script> 
+	$(document).on('submit', '#chatboard', function(e) { 
+		// alert("yes"); 
+		e.preventDefault(); 
+
+		var robot_li_open_tag = "<li class=\"row robot-window\">"; 
+		var robot_li_close_tag = "</li>"; 
+
+		var robot_text_open_tag = "<div class=\"col-lg-10 robot-text-window\">"; 
+		var robot_text_close_tag = "</div>"; 
+
+		var robot_avatar_tag = "<div class=\"col-lg-2\">\
+							<img width=\"60px\" height=\"60px\" src=\"images/robot_avatar.jpg\">\
+						</div>"; 
+
+		var user_li_open_tag = "<li class=\"row\"> <div class=\"col-lg-11 user-window\">"; 
+		var user_li_close_tag = "</div> </li>"; 
+
+		$("#chat-history").append(user_li_open_tag + document.getElementById("user-message").value + user_li_close_tag); 
+
+		var formData = {
+		    'message' : $('#user-message').val()
+		};
+
+	    $.ajax({
+	        url: $(this).attr('action'),
+	        type: $(this).attr('method'), 
+	        headers: { 
+	        	"x-api-key": 'y1cZom6EgK5lOLIQUeZjH8v5In4YFEnQ9hM0ACTQ'
+	        }, 
+	        data: JSON.stringify(formData), 
+	        success: function(data) { 
+	        	$("#chat-history").append(robot_li_open_tag + robot_avatar_tag + robot_text_open_tag + data.body.messages[0].unstructured.text + robot_text_close_tag + '</li>' + robot_li_close_tag);
+	        	// alert(data.body.messages[0].unstructured.text); 
+	        	var elem = document.getElementById('text-window'); 
+  				elem.scrollTop = elem.scrollHeight;
+	        }
+	    }); 
+
+		document.getElementById("user-message").value = ""; 
+
+	});
+</script> 
+
+</body>
+</html>
